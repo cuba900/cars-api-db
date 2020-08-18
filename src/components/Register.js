@@ -116,7 +116,7 @@ export const Register = () => {
             
         <div className="row">
             <div className="col-md-3">
-                <form onSubmit={handleSubmit} className="card card-body position-fixed">
+                <form onSubmit={handleSubmit} className="card card-body">
                     <div className="form-group">
                     <h1>Registrar Carros</h1> 
                         <input 

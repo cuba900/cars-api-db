@@ -3,6 +3,7 @@ from flask_pymongo import PyMongo
 from bson import json_util
 from bson.objectid import ObjectId
 from flask_cors import CORS
+import pymongo
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb+srv://cuba900:taller841@cluster0.muaqz.mongodb.net/apicardb?retryWrites=true&w=majority'
@@ -44,7 +45,7 @@ def createCar():
 @app.route('/cars', methods=['GET'])
 def getCars():
     cars = []
-    for doc in mongo.db.cars.find():
+    for doc in mongo.db.cars.find().sort([('name', pymongo.ASCENDING)]):
         cars.append({
             '_id': str(ObjectId(doc['_id'])),
             'name': doc['name'],
